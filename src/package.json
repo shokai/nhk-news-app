@@ -1,4 +1,7 @@
 {
-  "name": "nhk news",
-  "main": "index.html"
+  "name": "nhk-news",
+  "main": "index.html",
+  "dependencies": {
+    "async": "~0.2.10"
+  }
 }
