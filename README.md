@@ -19,9 +19,22 @@ download [zip archive](https://github.com/shokai/nhk-news-app/releases)
 - Ruby
 - Node.js
 
+### Install Depedencies
+
     % gem install bundler
     % bundle install
     % rake npm:install
+
+
+### Debug
+
     % rake
 
-=> generate nhk-news.app
+=> start nhk-news.app with debug-mode
+
+
+### Release
+
+    % rake release run
+
+build nhk-news.app
