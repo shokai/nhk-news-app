@@ -27,7 +27,7 @@ end
 task :buildapp do
   puts 'build start'
   File.delete nw_path if File.exists? nw_path
-  if system "cd #{src_path} && zip -r #{nw_path} *"
+  if system "cd #{src_path} && zip -q -r #{nw_path} *"
     puts 'build success'
   else
     puts 'build failed'

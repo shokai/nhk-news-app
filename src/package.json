@@ -2,6 +2,14 @@
   "name": "nhk-news",
   "main": "index.html",
   "dependencies": {
-    "async": "~0.2.10"
+    "async": "~0.2.10",
+    "request": "~2.33.0",
+    "cheerio": "~0.13.1",
+    "parse-rss": "~0.1.1",
+    "lodash": "~2.4.1",
+    "eventemitter2": "~0.4.13"
+  },
+  "webkit": {
+    "plugin": true
   }
 }
