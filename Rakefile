@@ -1,4 +1,4 @@
-app_path = File.expand_path "node-webkit.app", File.dirname(__FILE__)
+app_path = File.expand_path "nhk-news.app", File.dirname(__FILE__)
 nw_path = "#{app_path}/Contents/Resources/app.nw"
 src_path = File.expand_path "src", File.dirname(__FILE__)
 
