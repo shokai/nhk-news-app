@@ -31,6 +31,9 @@ class Player
       ## ビデオを自動再生
       setTimeout =>
         @iframe.contents().find('#news_image').click()
+        setTimeout =>
+          @iframe.contents().find('object').css({width:640, height: 360})
+        , 500
       , 1000
 
       setTimeout =>
