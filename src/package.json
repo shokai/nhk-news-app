@@ -15,7 +15,7 @@
   "window": {
     "title": "NHK News",
     "width": 800,
-    "height": 480,
+    "height": 600,
     "toolbar": true,
     "page-cache": true,
     "frame": true

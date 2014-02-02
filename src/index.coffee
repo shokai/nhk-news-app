@@ -1,5 +1,6 @@
 _ = require 'lodash'
 events = require 'eventemitter2'
+async = require 'async'
 
 class News extends events.EventEmitter2
   constructor: ->
@@ -19,8 +20,13 @@ class News extends events.EventEmitter2
         @emit 'error', err
         return
       news = _.reject news, (i) -> _.include @news, i
-      @news = @news.concat news
-      @emit 'fetch', news
+      async.map news, @nhk.hasVideo, (err, results) =>
+        for res, index in results by -1
+          unless res
+            print "#{news[index].url} no video"
+            news.splice index, 1
+        @news.concat news
+        @emit 'fetch', news
 
 class Player
   constructor: (@iframe=$('iframe'))->
