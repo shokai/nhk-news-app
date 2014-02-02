@@ -1,3 +1,7 @@
+=== 0.0.5 2014-02-03
+
+* modify size of video's parent box  #2
+
 === 0.0.4 2014-02-03
 
 * show version info on title bar  #3
