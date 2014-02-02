@@ -5,7 +5,6 @@
     "async": "~0.2.10",
     "request": "~2.33.0",
     "cheerio": "~0.13.1",
-    "parse-rss": "~0.1.1",
     "lodash": "~2.4.1",
     "eventemitter2": "~0.4.13",
     "feedparser": "~0.16.5"
@@ -14,7 +13,11 @@
     "plugin": true
   },
   "window": {
+    "title": "NHK News",
+    "width": 800,
+    "height": 480,
     "toolbar": true,
-    "page-cache": true
+    "page-cache": true,
+    "frame": true
   }
 }
