@@ -35,6 +35,7 @@ download [zip archive](https://github.com/shokai/nhk-news-app/releases)
 
 ### Release
 
+build nhk-news.app
+
     % rake release run
 
-build nhk-news.app
