@@ -1,3 +1,8 @@
+=== 0.0.3 2014-02-03
+
+* detect video end by difference of captured image  #1
+* disable toolbar
+
 === 0.0.2 2014-02-02
 
 * skip if video not available

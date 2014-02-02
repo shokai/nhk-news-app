@@ -20,7 +20,7 @@
     "page-cache": true,
     "frame": true
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "auto play NHK News",
   "devDependencies": {},
   "scripts": {
