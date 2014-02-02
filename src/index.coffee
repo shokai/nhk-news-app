@@ -1,27 +1,83 @@
-require './nhk'
+_ = require 'lodash'
+events = require 'eventemitter2'
 
-nhk = new NHK
-urls = []
+class News extends events.EventEmitter2
+  constructor: ->
+    @news = []
+    @nhk = new NHK
+
+  run: (interval=300000) ->
+    setInterval =>
+      @fetch()
+    , interval
+    @fetch()
+
+  fetch: ->
+    print 'fetch'
+    @nhk.getNews (err, news) =>
+      if err
+        @emit 'error', err
+        return
+      news = _.reject news, (i) -> _.include @news, i
+      @news = @news.concat news
+      @emit 'fetch', news
+
+class Player
+  constructor: (@iframe=$('iframe'))->
+    @urls = []
+    @seek = 0
+    @interval = 90000
+    @iframe?.on 'load', =>
+      ## ビデオを自動再生
+      setTimeout =>
+        @iframe.contents().find('#news_image').click()
+      , 1000
+
+      setTimeout =>
+        @next()
+      , @interval  ## 1.5分で次のニュースへ移動
+
+    setInterval =>
+      @load @urls[@seek] if @urls.length > @seek
+    , 100
+
+  load: (url)->
+    return unless @iframe?
+    return if @iframe.attr('src') is url
+    print "load #{url}"
+    @iframe.attr src: url
+
+  next: ->
+    @seek += 1
+    @seek = 0 if @seek >= @urls.length or @seek < 0
+
+  add: (url) ->
+    print "add #{url}"
+    unless _.include @urls, url
+      @urls.unshift url
+      @seek = 0
+
+
+window.news = new News
 
 $ ->
-  nhk.getNews (err, news) ->
-    cid = setInterval ->
-      load news.shift().url
-      clearInterval cid if news.length < 1
-    , 10000
+  window.player = new Player
+  news.run()
+  news.on 'fetch', (data) ->
+    $("#msgbox").hide()
+    for i in data
+      player.add i.url
+  news.on 'error', (err) ->
+    print err
 
-  $('iframe').on 'load', =>
-    ## ビデオを自動再生
-    setTimeout =>
-      $('iframe').contents().find('#news_image').click()
-    , 1000
 
-    setTimeout ->
-      next()
-    , 90000  ## 1.5分で次のニュースへ移動
+print = (msg) ->
+  return
+  # console?.log msg
+  msgbox = $("#msgbox")
+  if typeof msg is 'string'
+    msgbox.text(msg)
+  else
+    msgbox.html(msg)
+  # msgbox.show()
 
-load = (url) ->
-  $("#msgbox").hide()
-  $('iframe').attr src: url
-
-next = ->
