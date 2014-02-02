@@ -1,7 +1,13 @@
 _ = require 'lodash'
+path = require 'path'
 events = require 'eventemitter2'
 async = require 'async'
 gui = require 'nw.gui'
+
+pkg_info = require path.resolve 'package.json'
+console.log pkg_info
+$ ->
+  gui.Window.get().title += " v#{pkg_info.version}"
 
 class News extends events.EventEmitter2
   constructor: ->
