@@ -1,5 +1,6 @@
 {
   "name": "nhk-news",
+  "version": "0.0.4",
   "main": "index.html",
   "dependencies": {
     "async": "~0.2.10",
@@ -20,7 +21,6 @@
     "page-cache": true,
     "frame": true
   },
-  "version": "0.0.3",
   "description": "auto play NHK News",
   "devDependencies": {},
   "scripts": {

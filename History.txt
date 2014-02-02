@@ -1,3 +1,7 @@
+=== 0.0.4 2014-02-03
+
+* show version info on title bar  #3
+
 === 0.0.3 2014-02-03
 
 * detect video end by difference of captured image  #1
