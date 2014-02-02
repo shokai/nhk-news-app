@@ -1,6 +1,7 @@
 _ = require 'lodash'
 events = require 'eventemitter2'
 async = require 'async'
+gui = require 'nw.gui'
 
 class News extends events.EventEmitter2
   constructor: ->
@@ -42,13 +43,20 @@ class Player
         , 500
       , 1000
 
-      setTimeout =>
-        @next()
-      , @interval  ## 1.5分で次のニュースへ移動
-
     setInterval =>
       @load @urls[@seek] if @urls.length > @seek
     , 100
+
+    win = gui.Window.get()
+    last_image = null
+    setInterval =>
+      win.capturePage (image) =>
+        if last_image is image  ## 動画が停止している時、次のニュースへ移動
+          @next()
+        last_image = image
+      , 'png'
+    , 5000
+
 
   load: (url)->
     return unless @iframe?
