@@ -19,5 +19,26 @@
     "toolbar": true,
     "page-cache": true,
     "frame": true
-  }
+  },
+  "version": "0.0.2",
+  "description": "auto play NHK News",
+  "devDependencies": {},
+  "scripts": {
+    "start": "bundle exec rake"
+  },
+  "author": "Sho Hashimoto <hashimoto@shokai.org>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shokai/nhk-news-app.git"
+  },
+  "keywords": [
+    "nhk",
+    "news",
+    "node-webkit"
+  ],
+  "bugs": {
+    "url": "https://github.com/shokai/nhk-news-app/issues"
+  },
+  "homepage": "https://github.com/shokai/nhk-news-app"
 }
