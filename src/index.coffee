@@ -46,6 +46,7 @@ class Player
         @iframe.contents().find('#news_image').click()
         setTimeout =>
           @iframe.contents().find('object').css({width:640, height: 360})
+          @iframe.contents().find('#news_image_div2').css({height: 360})
         , 500
       , 1000
 
