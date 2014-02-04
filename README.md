@@ -5,6 +5,7 @@ auto play NHK News
 
 - using [node-webkit](https://github.com/rogerwang/node-webkit)
 - for Mac OSX
+- https://github.com/shokai/nhk-news-app
 
 ![screen shot](http://gyazo.com/231992daa43311b6b3245d01ea2ca38f.png)
 
