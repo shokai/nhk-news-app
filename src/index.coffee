@@ -5,7 +5,7 @@ async = require 'async'
 gui = require 'nw.gui'
 
 pkg_info = require path.resolve 'package.json'
-console.log pkg_info
+
 $ ->
   gui.Window.get().title += " v#{pkg_info.version}"
 
@@ -97,7 +97,7 @@ $ ->
 
 print = (msg) ->
   return
-  # console?.log msg
+  console.log msg
   msgbox = $("#msgbox")
   if typeof msg is 'string'
     msgbox.text(msg)
