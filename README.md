@@ -6,6 +6,7 @@ auto play NHK News
 - using [node-webkit](https://github.com/rogerwang/node-webkit)
 - for Mac OSX
 - https://github.com/shokai/nhk-news-app
+- [橋本商会 » node-webkitでNHK Newsを連続自動再生するアプリ作った](http://shokai.org/blog/archives/8586)
 
 ![screen shot](http://gyazo.com/231992daa43311b6b3245d01ea2ca38f.png)
 
