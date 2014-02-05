@@ -58,7 +58,7 @@ class Player
     last_image = null
     setInterval =>
       win.capturePage (image) =>
-        if last_image is image  ## 動画が停止している時、次のニュースへ移動
+        if last_image is image  ## 動画が停止していたら、次のニュースへ移動
           @next()
         last_image = image
       , 'png'
