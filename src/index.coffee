@@ -22,7 +22,7 @@ class News extends events.EventEmitter2
 
   fetch: ->
     print 'fetch'
-    @nhk.getNews (err, news) =>
+    @nhk.getAllNews (err, news) =>
       if err
         @emit 'error', err
         return
