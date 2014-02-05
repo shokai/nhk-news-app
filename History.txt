@@ -1,3 +1,7 @@
+=== 0.0.6 2014-02-05
+
+* show error message if video news not available  #5
+
 === 0.0.5 2014-02-03
 
 * modify size of video's parent box  #2
