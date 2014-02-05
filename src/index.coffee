@@ -33,7 +33,10 @@ class News extends events.EventEmitter2
             print "#{news[index].url} no video"
             news.splice index, 1
         @news.concat news
-        @emit 'fetch', news
+        if news.length > 0
+          @emit 'fetch', news
+        else
+          @emit 'error', '動画付きニュースがありません'
 
 class Player
   constructor: (@iframe=$('iframe'))->
@@ -96,7 +99,6 @@ $ ->
 
 
 print = (msg) ->
-  return
   console.log msg
   msgbox = $("#msgbox")
   if typeof msg is 'string'
